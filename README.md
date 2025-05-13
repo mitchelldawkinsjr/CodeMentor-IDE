@@ -18,7 +18,7 @@ A lightweight offline web development environment for teaching front-end technol
 ### **2. GitHub Pages (Online)**
 - [View Online Version](https://mitchelldawkinsjr.github.io/WebBasics-IDE/)
 
-: Click any tab and start coding
+> Click any tab and start coding
 
 ## How It Works
 CodeMentor IDE bundles the complete CodeMirror library directly with the extension, enabling full syntax highlighting and code editing capabilities without requiring an internet connection. Perfect for teaching coding in environments with limited connectivity.
