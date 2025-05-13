@@ -1,0 +1,21 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+    text-align: center;
+}
+
+textarea {
+    width: 90%;
+    height: 200px;
+}
+
+button {
+    margin: 10px;
+    padding: 10px;
+}
+
+iframe {
+    width: 90%;
+    height: 300px;
+    border: 1px solid #ccc;
+}

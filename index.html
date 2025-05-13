@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Offline Code Editor</title>
+
+    <link rel="stylesheet" href="codemirror/lib/codemirror.css">
+    <link rel="stylesheet" href="codemirror/theme/material.css">
+
+    <style>
+        body { font-family: Arial, sans-serif; padding: 10px; }
+        .tabs button { padding: 8px; cursor: pointer; }
+        .CodeMirror { height: 150px; border: 1px solid #ddd; }
+        iframe { width: 100%; height: 300px; border: 1px solid #ddd; margin-top: 10px; }
+    </style>
+</head>
+<body>
+    <h3>Offline Code Editor</h3>
+
+    <div class="tabs">
+        <button onclick="switchTab('html')">HTML</button>
+        <button onclick="switchTab('css')">CSS</button>
+        <button onclick="switchTab('js')">JavaScript</button>
+    </div>
+
+    <textarea id="html-code"></textarea>
+    <textarea id="css-code" style="display: none;"></textarea>
+    <textarea id="js-code" style="display: none;"></textarea>
+
+    <br>
+    <button onclick="runCode()">Run</button>
+
+    <iframe id="preview"></iframe>
+
+    <!-- Load CodeMirror Core First -->
+    <script src="codemirror/lib/codemirror.js"></script>
+
+    <!-- Load CodeMirror Modes (After the Core) -->
+    <script src="codemirror/mode/xml/xml.js"></script>
+    <script src="codemirror/mode/javascript/javascript.js"></script>
+    <script src="codemirror/mode/css/css.js"></script>
+    <script src="codemirror/mode/htmlmixed/htmlmixed.js"></script>
+
+    <script>
+        let editors = {
+            html: CodeMirror.fromTextArea(document.getElementById("html-code"), { mode: "htmlmixed", theme: "default", lineNumbers: true }),
+            css: CodeMirror.fromTextArea(document.getElementById("css-code"), { mode: "css", theme: "default", lineNumbers: true }),
+            js: CodeMirror.fromTextArea(document.getElementById("js-code"), { mode: "javascript", theme: "default", lineNumbers: true })
+        };
+
+        function switchTab(tab) {
+            Object.keys(editors).forEach(key => {
+                editors[key].getWrapperElement().style.display = (key === tab) ? "block" : "none";
+            });
+        }
+
+        function runCode() {
+            let html = editors.html.getValue();
+            let css = `<style>${editors.css.getValue()}</style>`;
+            let js = `<script>${editors.js.getValue()}<\/script>`;
+            document.getElementById("preview").srcdoc = html + css + js;
+        }
+    </script>
+</body>
+</html>
