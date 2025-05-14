@@ -10,15 +10,19 @@ A lightweight offline web development environment for teaching front-end technol
 - **Clean, Distraction-Free Interface** ideal for teaching environments
 
 ## Installation:
-### **1. Load Chrome Extension**
+### **1. Simple Browser Usage**
+- Download or clone the repository
+- Open index.html in any modern browser
+- Start coding immediately with no setup required
+
+### **2. Load Chrome Extension**
 - Open `chrome://extensions/`
 - Enable **Developer Mode**
 - Click **Load unpacked** and select the folder.
 
-### **2. GitHub Pages (Online)**
+### **3. GitHub Pages (Online)**
 - [View Online Version](https://mitchelldawkinsjr.github.io/WebBasics-IDE/)
 
-> Click any tab and start coding
 
 ## How It Works
 CodeMentor IDE bundles the complete CodeMirror library directly with the extension, enabling full syntax highlighting and code editing capabilities without requiring an internet connection. Perfect for teaching coding in environments with limited connectivity.
